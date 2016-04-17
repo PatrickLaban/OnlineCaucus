@@ -9,8 +9,7 @@ from ModelBase import ModelBase
 
 class AccountTypes(object):
     NORMAL = 0
-    BUSINESS = 1
-    INTERNAL_ADMIN = 2
+    INTERNAL_ADMIN = 1
 
 
 class AccountStates(object):
@@ -27,7 +26,7 @@ class UserAccount(ModelBase):
     google_id = ndb.StringProperty()
     email = ndb.StringProperty()
     name = ndb.StringProperty()
-    type = ndb.IntegerProperty(choices=[AccountTypes.NORMAL, AccountTypes.BUSINESS, AccountTypes.INTERNAL_ADMIN],
+    type = ndb.IntegerProperty(choices=[AccountTypes.NORMAL, AccountTypes.INTERNAL_ADMIN],
                                default=AccountTypes.NORMAL)
     state = ndb.IntegerProperty(choices=[AccountStates.ACTIVE], default=AccountStates.ACTIVE)
 

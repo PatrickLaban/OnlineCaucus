@@ -17,7 +17,7 @@ class CompanyInfoHandler(AccountBaseHandler):
 class CompanyCreateHandler(AccountBaseHandler):
     @ndb.toplevel
     def get(self):
-        self.render_template('account/company/company_new_edit.html')
+        self.render_template('account/company/caucus_new_edit.html')
 
     @ndb.toplevel
     def post(self):
@@ -37,7 +37,7 @@ class CompanyEditHandler(AccountBaseHandler):
     def get(self, company_id):
         company = Company.get_by_id(int(company_id))
         self.template_values['company'] = company
-        self.render_template('account/company/company_new_edit.html')
+        self.render_template('account/company/caucus_new_edit.html')
 
     @ndb.toplevel
     def put(self, company_id):
