@@ -10,7 +10,8 @@ class CaucusInfoHandler(AccountBaseHandler):
     @ndb.toplevel
     def get(self, caucus_id):
         caucus = Caucus.get_by_id(int(caucus_id))
-        self.response.write(caucus.name)
+        self.template_values['caucus'] = caucus
+        self.render_template('account/caucus/caucus_details.html')
 
 
 class CaucusCreateHandler(AccountBaseHandler):
@@ -47,4 +48,13 @@ class CaucusEditHandler(AccountBaseHandler):
             return
         caucus.edit_caucus(name=name)
         response = {'success': True, 'goto_url': '/account/caucus/{0}'.format(caucus.key.id())}
+        self.response.write(json.dumps(response))
+
+
+class CaucusJoinHandler(AccountBaseHandler):
+    @ndb.toplevel
+    def post(self, caucus_id):
+        caucus = Caucus.get_by_id(int(caucus_id))
+        caucus.add_participant(self.user_account)
+        response = {'success': True}
         self.response.write(json.dumps(response))

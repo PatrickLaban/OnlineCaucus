@@ -17,5 +17,5 @@ class Caucus(ModelBase):
         return new_caucus
 
     def add_participant(self, user_account):
-        self.participants.append = user_account.key
+        self.participants.append(user_account.key)
         self.put()

@@ -9,6 +9,7 @@ app = webapp2.WSGIApplication(
     [('/account/caucus_create/?', controllers.account.caucus.CaucusCreateHandler),
      ('/account/caucus_edit/(\d+)', controllers.account.caucus.CaucusEditHandler),
      ('/account/caucus/(\d+)', controllers.account.caucus.CaucusInfoHandler),
+     ('/account/caucus_join/(\d+)', controllers.account.caucus.CaucusJoinHandler),
      ('/account/company_create/?', controllers.account.company.CompanyCreateHandler),
      ('/account/company_edit/(\d+)', controllers.account.company.CompanyEditHandler),
      ('/account/company/(\d+)', controllers.account.company.CompanyInfoHandler),
